@@ -16,8 +16,6 @@ import reactor.core.publisher.Mono;
 @EnableWebFluxSecurity
 public class SecurityConfiguration {
 
-
-
     private AuthenticationManager authenticationManager;
     private SecurityContextRepository securityContextRepository;
 
