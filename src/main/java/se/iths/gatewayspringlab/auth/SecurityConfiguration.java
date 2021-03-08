@@ -43,6 +43,7 @@ public class SecurityConfiguration {
                 )).accessDeniedHandler((swe, e) -> Mono.fromRunnable(() ->
                         swe.getResponse().setStatusCode(HttpStatus.FORBIDDEN))).and()
                 .authorizeExchange()
+                .pathMatchers("/sign-up/**").permitAll()
                 .pathMatchers("/auth/**").permitAll()
                 .pathMatchers(HttpMethod.GET,"/countries/**").authenticated()
                 .pathMatchers("/countries/**").hasRole("ADMIN")
