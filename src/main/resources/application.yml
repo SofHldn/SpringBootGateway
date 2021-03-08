@@ -32,6 +32,12 @@ spring:
             - Path=/songs/**
           filters:
             - RewritePath=/songs/(?<path>.*), /songs/$\{path}
+        - id: combo-service
+          uri: lb://combo-service
+          predicates:
+            - Path=/combo/**
+          filters:
+            - RewritePath=/combo/(?<path>.*), /combo/$\{path}
         - id: auth-service
           uri: http://localhost:9100
           predicates:
